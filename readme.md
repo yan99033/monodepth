@@ -1,3 +1,26 @@
+<p align="center">
+  <img src="https://github.com/yan99033/monodepth/blob/master/screenshots.gif" alt="monodepth1">
+</p>
+
+I have created a ROS node real-time monocular depth estimation (using monodepth model). It would be useful for researchers who are working on SLAM and VO problems. A pre-trained network is used to predict the depth map from a single image.
+
+## Instruction
+1. Install Tensorflow (tested with Tensorflow 1.4, CUDA 8.0 and Ubuntu 16.04)
+2. 'git clone https://github.com/yan99033/monodepth.git' in your catkin workspace (i.e. ~/catkin_ws/src)
+3. cd ~/catkin_ws && catkin_make
+4. Download the monodepth model to a folder (refer to the instruction of the original author below)
+5. Go to the launch folder and modify the launch file accordingly (provide the image topics and the model path)
+6. In terminal, run "roslaunch monodepth monodepth.launch"
+
+## Note
+* The inference speed is about 15 fps on a GTX 1070 laptop
+* The ROS node outputs a stacked depth and  cropped image for every image received from the image topic
+* The images from the image topic will be cropped and resized to 256x512 accomodate the monodepth model
+* You can either use KITTI dataset OR images from a webcam, you just need to update the launch file with your image topic
+* If you want to convert the images to a ROSbag, use [BagFromImages](https://github.com/raulmur/BagFromImages) OR [BagFromImages(catkinized)](https://github.com/yan99033/BagFromImages)
+* Feel free to modify the Python script to satisfy your need
+* If you find it useful, please cite the paper "Unsupervised Monocular Depth Estimation with Left-Right Consistency"
+
 # monodepth
 Tensorflow implementation of unsupervised single image depth prediction using a convolutional neural network.
 
