@@ -21,6 +21,8 @@ I have created a ROS node real-time monocular depth estimation (using monodepth 
 * Feel free to modify the Python script to satisfy your need
 * If you find it useful, please cite the paper "Unsupervised Monocular Depth Estimation with Left-Right Consistency"
 
+____________________________________________________________________________________________________________________________
+
 # monodepth
 Tensorflow implementation of unsupervised single image depth prediction using a convolutional neural network.
 
