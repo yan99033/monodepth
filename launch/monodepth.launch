@@ -1,0 +1,15 @@
+<launch>
+  <node name="monodepth" pkg="monodepth" type="monodepth_node.py">
+    <param name="image_topic" value="/camera/image_raw" />
+    <param name="out_image_topic" value="/camera/image_cropped" />
+    <param name="depth_topic" value="/monodepth" />
+    <param name="depth_topic_view" value="/monodepth_view" />
+    <param name="path_to_model" value="/home/bryan/monodepth/model/model_kitti" />
+  </node>
+  
+  <!-- Depth map visualization -->
+  <node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    <remap from="image" to="/monodepth_view"/>
+    <param name="autosize" value="true" />
+  </node> 
+</launch>
